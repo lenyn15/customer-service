@@ -1,0 +1,110 @@
+openapi: '3.0.1'
+info:
+  title: Customer Microservice
+  description: |-
+    This microservice is only for register new customers and get information related to customer
+  version: 1.0.0
+servers:
+  - url: http://localhost:8081/api/v1
+    description: Local server
+paths:
+  /customer/{idCustomer}:
+    get:
+      tags:
+        - customer
+      summary: Get information related to one customer
+      description: Get information related to one customer by id
+      operationId: getCustomerInformation
+      parameters:
+        - name: idCustomer
+          in: path
+          description: id of customer to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '404':
+          description: Customer not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /customer:
+    post:
+      tags:
+        - customer
+      summary: Save a new customer
+      description: Before the customer get saved, verify should not repeat
+      operationId: addNewCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerDTO'
+              description: Object with required fields
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        httpStatus:
+          type: string
+        data:
+          oneOf:
+            - type: string
+              enum:
+                - "Se guardó correctamente al cliente"
+            - $ref: '#/components/schemas/CustomerDTO'
+            - type: array
+              items:
+                $ref: '#/components/schemas/CustomerDTO'
+        errors:
+          type: array
+          items:
+            type: string
+            enum:
+              - "El nombre del cliente no puede estar en blanco"
+              - "Debe elegir el tipo de cliente"
+              - "Ya existe un cliente con ese nombre"
+              - "No se encontró al cliente"
+    CustomerDTO:
+      required:
+        - dsName
+        - customerType
+      type: object
+      properties:
+        idCustomer:
+          type: string
+        dsName:
+          type: string
+        customerType:
+          type: string
+          enum:
+            - "PERSONAL"
+            - "EMPRESARIAL"
+        createdAt:
+          type: string
+          format: date-time

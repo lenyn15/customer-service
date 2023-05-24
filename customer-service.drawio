@@ -1,0 +1,55 @@
+<mxfile host="Electron" modified="2023-05-22T21:03:52.466Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" version="21.2.8" etag="LlI6g4MYEWhoAGbmqNfE" type="device">
+  <diagram id="cmRsEj8S_jRYDdyRf_Zz" name="Página-1">
+    <mxGraphModel dx="1902" dy="1208" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="asRjT1U_BpvjovgJPCa--15" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="asRjT1U_BpvjovgJPCa--10" target="asRjT1U_BpvjovgJPCa--14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--10" value="Customer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-47" y="12" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--2" value="- idCustomer: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="asRjT1U_BpvjovgJPCa--10">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--5" value="- dsName: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="asRjT1U_BpvjovgJPCa--10">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--6" value="- customerType: Enum" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="asRjT1U_BpvjovgJPCa--10">
+          <mxGeometry y="78" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--7" value="- createdAt: LocalDate" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="asRjT1U_BpvjovgJPCa--10">
+          <mxGeometry y="104" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--14" value="COMPONENT:&lt;br&gt;- CustomerDTO&lt;br&gt;- CustomerRepository&lt;br&gt;- CustomerService&lt;br&gt;&lt;br&gt;REST&lt;br&gt;- CustomerResource&lt;br&gt;- CustomerRest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontStyle=0;startSize=26;" vertex="1" parent="1">
+          <mxGeometry x="226" y="-3" width="258" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--29" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="asRjT1U_BpvjovgJPCa--24" target="asRjT1U_BpvjovgJPCa--28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--24" value="CustomerService" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeLast=1;container=0;fontColor=#000000;collapsible=0;rounded=1;arcSize=30;strokeColor=#ff0000;fillColor=#ffffc0;swimlaneFillColor=#ffffc0;dropTarget=0;" vertex="1" parent="1">
+          <mxGeometry x="-98" y="286" width="256" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--25" value="getCustomer(idCustomer: String)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;fontColor=#000000;" vertex="1" parent="asRjT1U_BpvjovgJPCa--24">
+          <mxGeometry y="30" width="256" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--28" value="Return a specific customer giving his id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffc0;strokeColor=#ff0000;fontColor=#000000;fontStyle=1;startSize=30;arcSize=30;swimlaneFillColor=#ffffc0;" vertex="1" parent="1">
+          <mxGeometry x="228" y="286" width="186" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--34" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="asRjT1U_BpvjovgJPCa--30" target="asRjT1U_BpvjovgJPCa--33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--30" value="CustomerService" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeLast=1;container=0;fontColor=#000000;collapsible=0;rounded=1;arcSize=30;strokeColor=#ff0000;fillColor=#ffffc0;swimlaneFillColor=#ffffc0;dropTarget=0;" vertex="1" parent="1">
+          <mxGeometry x="-177" y="398" width="335" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--31" value="addNewCustomer(requestDTO: Mono&amp;lt;CustomerDTO&amp;gt;)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;fontColor=#000000;" vertex="1" parent="asRjT1U_BpvjovgJPCa--30">
+          <mxGeometry y="30" width="335" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="asRjT1U_BpvjovgJPCa--33" value="Register a new customer.&lt;br&gt;Before save, should validate unique customer by name" style="whiteSpace=wrap;html=1;fillColor=#ffffc0;strokeColor=#ff0000;fontColor=#000000;fontStyle=1;startSize=30;rounded=1;arcSize=30;swimlaneFillColor=#ffffc0;" vertex="1" parent="1">
+          <mxGeometry x="228" y="398" width="224" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
