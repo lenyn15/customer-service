@@ -36,17 +36,17 @@ public class CustomerServiceImpl implements CustomerService {
      *
      */
     @Override
-    public Mono<Void> addNewCustomer( Mono<CustomerDTO> requestDTO ) {
+    public Mono<String> addNewCustomer( Mono<CustomerDTO> requestDTO ) {
         return requestDTO.flatMap( customerDTO -> {
             customerDTO.setCreatedAt( LocalDate.now() );
-            String customerName = customerDTO.getDsName();
-
-            return this.customerRepository.findByDsName( customerName )
-                    .flatMap( existingCustomer -> {
-                        throw new RequestException( "Ya existe un cliente con ese nombre" );
+            return this.customerRepository.findByDsName( customerDTO.getDsName() )
+                    .flatMap( customer -> {
+                        throw new RequestException( "El cliente con ese nombre ya existe" );
                     } )
-                    .switchIfEmpty( this.customerRepository.save( CustomerToEntity.INSTANCE.apply( customerDTO ) ) )
-                    .then();
+                    .defaultIfEmpty( CustomerToEntity.INSTANCE.apply( customerDTO ) )
+                    .map( Customer.class::cast )
+                    .flatMap( this.customerRepository::save )
+                    .map( Customer::getIdCustomer );
         } );
     }
 }

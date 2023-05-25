@@ -40,10 +40,10 @@ public class CustomerResourceImpl implements CustomerResource {
     @Override
     public Mono<Response> addNewCustomer( Mono<CustomerDTO> requestDTO ) {
         return this.customerService.addNewCustomer( requestDTO )
-                .then( Mono.fromCallable( () -> {
-                    Map<String, String> data = Util.getMessageSuccess( "Se guardó correctamente al cliente" );
+                .map( idCustomer -> {
+                    Map<String, Object> data = Util.getData( idCustomer );
                     return ResponseUtil.getCreatedResponse( data );
-                } ) )
+                } )
                 .onErrorResume( throwable -> Util.getErrorMessages( throwable )
                         .flatMap( errors -> Mono.just( ResponseUtil.getBadResponse( errors ) ) )
                 );

@@ -21,5 +21,5 @@ public interface CustomerService {
      * @param requestDTO Object with required fields filled
      * @return Mono<Void>
      */
-    Mono<Void> addNewCustomer( Mono<CustomerDTO> requestDTO );
+    Mono<String> addNewCustomer( Mono<CustomerDTO> requestDTO );
 }
