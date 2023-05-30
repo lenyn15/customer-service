@@ -26,8 +26,8 @@ public class CustomerResourceImpl implements CustomerResource {
      *
      */
     @Override
-    public Mono<Response> getCustomerInformation( String idCustomer ) {
-        return this.customerService.getCustomerInfo( idCustomer )
+    public Mono<Response> getCustomerInformation( String nmDocument ) {
+        return this.customerService.getCustomerInfo( nmDocument )
                 .map( customerDTO -> {
                     Map<String, Object> data = Util.getData( customerDTO );
                     return ResponseUtil.getOkResponse( data );

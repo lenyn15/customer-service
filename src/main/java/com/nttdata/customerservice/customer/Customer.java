@@ -31,6 +31,12 @@ public class Customer implements Serializable {
     private String dsName;
 
     /**
+     * Customer's document number
+     */
+    @Field( name = "NM_DOCUMENT" )
+    private String nmDocument;
+
+    /**
      * Type of customer
      */
     @Field( name = "CUSTOMER_TYPE" )

@@ -8,17 +8,17 @@ servers:
   - url: http://localhost:8081/api/v1
     description: Local server
 paths:
-  /customer/{idCustomer}:
+  /customer/{identifier}:
     get:
       tags:
         - customer
       summary: Get information related to one customer
-      description: Get information related to one customer by id
+      description: Get information related to one customer by his identifier
       operationId: getCustomerInformation
       parameters:
-        - name: idCustomer
+        - name: identifier
           in: path
-          description: id of customer to return
+          description: Identifier of customer to get like his ID or document number
           required: true
           schema:
             type: string
@@ -30,7 +30,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Response'
         '400':
-          description: Invalid ID supplied
+          description: Invalid document number supplied
           content:
             application/json:
               schema:
@@ -75,8 +75,7 @@ components:
         data:
           oneOf:
             - type: string
-              enum:
-                - "Se guardó correctamente al cliente"
+              description: Id of the customer recently saved
             - $ref: '#/components/schemas/CustomerDTO'
             - type: array
               items:

@@ -11,4 +11,6 @@ import reactor.core.publisher.Mono;
 public interface CustomerRepository extends ReactiveMongoRepository<Customer, String> {
 
     Mono<Customer> findByDsName( String dsName );
+
+    Mono<Customer> findByNmDocument( String nmDocument );
 }

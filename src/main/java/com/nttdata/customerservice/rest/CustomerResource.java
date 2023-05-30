@@ -12,10 +12,10 @@ public interface CustomerResource {
     /**
      * Transform the customer's information into a custom response
      *
-     * @param idCustomer customer's identifier
+     * @param identifier customer's identifier like his ID or document number
      * @return Mono<Response>
      */
-    Mono<Response> getCustomerInformation( String idCustomer );
+    Mono<Response> getCustomerInformation( String identifier );
 
     /**
      * When the customer is saved, the success message is passed to the

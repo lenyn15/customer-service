@@ -36,6 +36,12 @@ public class CustomerDTO implements Serializable {
     private Integer type;
 
     /**
+     * Customer's document number
+     */
+    @NotEmpty( message = "Debe ingresar el numero de documento" )
+    private String nmDocument;
+
+    /**
      * Type of customer description
      */
     private String customerType;
