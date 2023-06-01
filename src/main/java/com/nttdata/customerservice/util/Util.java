@@ -32,19 +32,6 @@ public final class Util {
     }
 
     /**
-     * Pass to a map the message to return
-     *
-     * @param message String with success message
-     * @return Map<String, String>
-     */
-    public static Map<String, String> getMessageSuccess( String message ) {
-        Map<String, String> data = new HashMap<>();
-        data.put( Constants.Key.MESSAGE, message );
-
-        return data;
-    }
-
-    /**
      * Cast errors from fields validation
      *
      * @param throwable Class exception with message errors

@@ -92,12 +92,17 @@ components:
     CustomerDTO:
       required:
         - dsName
-        - customerType
+        - type
+        - nmDocument
       type: object
       properties:
         idCustomer:
           type: string
         dsName:
+          type: string
+        type:
+          type: integer
+        nmDocument:
           type: string
         customerType:
           type: string
