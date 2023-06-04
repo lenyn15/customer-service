@@ -8,12 +8,12 @@ import reactor.core.publisher.Mono;
 public interface CustomerService {
 
     /**
-     * Get customer information with the specified identifier
+     * Get customer information with the specified document number
      *
-     * @param identifier customer's identifier like his ID or document number
+     * @param nmDocument customer's document number
      * @return Mono<CustomerDTO>
      */
-    Mono<CustomerDTO> getCustomerInfo( String identifier );
+    Mono<CustomerDTO> getCustomerInfo( String nmDocument );
 
     /**
      * Register a new customer

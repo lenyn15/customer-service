@@ -36,19 +36,19 @@ public class CustomerRest {
 
     @Operation( operationId = "getCustomerInformation",
             summary = "Get information related to one customer",
-            description = "Get information related to one customer by his identifier",
+            description = "Get information related to one customer by his document number",
             tags = { "customer" },
             responses = {
                     @ApiResponse( responseCode = "200", description = "Successful operation", content = @Content( mediaType = "application/json", schema = @Schema( implementation = Response.class ) ) ),
-                    @ApiResponse( responseCode = "400", description = "Invalid identifier supplied", content = @Content( mediaType = "application/json", schema = @Schema( implementation = Response.class ) ) ),
+                    @ApiResponse( responseCode = "400", description = "Invalid document number supplied", content = @Content( mediaType = "application/json", schema = @Schema( implementation = Response.class ) ) ),
                     @ApiResponse( responseCode = "404", description = "Customer not found", content = @Content( mediaType = "application/json", schema = @Schema( implementation = Response.class ) ) )
             } )
-    @GetMapping( "{identifier}" )
+    @GetMapping( "{nmDocument}" )
     public Mono<ResponseEntity<Response>> getCustomerInformation(
-            @Parameter( name = "identifier", description = "Identifier of customer to get like his ID or document number", required = true )
-            @PathVariable String identifier
+            @Parameter( name = "nmDocument", description = "Customer's document number", required = true )
+            @PathVariable String nmDocument
     ) {
-        return this.customerResource.getCustomerInformation( identifier ).map( ResponseUtil::getRestResponse );
+        return this.customerResource.getCustomerInformation( nmDocument ).map( ResponseUtil::getRestResponse );
     }
 
     @Operation( operationId = "addNewCustomer",

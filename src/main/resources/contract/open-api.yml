@@ -8,17 +8,17 @@ servers:
   - url: http://localhost:8081/api/v1
     description: Local server
 paths:
-  /customer/{identifier}:
+  /customer/{nmDocument}:
     get:
       tags:
         - customer
       summary: Get information related to one customer
-      description: Get information related to one customer by his identifier
+      description: Get information related to one customer by his document number
       operationId: getCustomerInformation
       parameters:
-        - name: identifier
+        - name: nmDocument
           in: path
-          description: Identifier of customer to get like his ID or document number
+          description: Customer's document number
           required: true
           schema:
             type: string

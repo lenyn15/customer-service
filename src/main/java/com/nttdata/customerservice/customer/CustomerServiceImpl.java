@@ -27,12 +27,10 @@ public class CustomerServiceImpl implements CustomerService {
      *
      */
     @Override
-    public Mono<CustomerDTO> getCustomerInfo( String identifier ) {
-        return this.customerRepository.findById( identifier ).hasElement()
-                .zipWith( this.customerRepository.findByNmDocument( identifier ).hasElement() )
-                .flatMap( elements -> this.getInformation( identifier, elements )
-                        .map( CustomerToDTO.INSTANCE )
-                        .switchIfEmpty( Mono.error( new RequestException( "No se encontró al cliente" ) ) ) );
+    public Mono<CustomerDTO> getCustomerInfo( String nmDocument ) {
+        return this.customerRepository.findByNmDocument( nmDocument )
+                .map( CustomerToDTO.INSTANCE )
+                .switchIfEmpty( Mono.error( new RequestException( "No se encontró al cliente" ) ) );
     }
 
     /**
@@ -50,22 +48,6 @@ public class CustomerServiceImpl implements CustomerService {
                                 .map( Customer::getIdCustomer );
                     } );
         } );
-    }
-
-    private Mono<Customer> getInformation( String identifier, Tuple2<Boolean, Boolean> elements ) {
-        boolean existById = elements.getT1();
-        boolean existByNmDocument = elements.getT2();
-
-        Mono<Customer> customer = Mono.empty();
-        if ( Boolean.TRUE.equals( existById ) ) {
-            customer = this.customerRepository.findById( identifier );
-        }
-
-        if ( Boolean.TRUE.equals( existByNmDocument ) ) {
-            customer = this.customerRepository.findByNmDocument( identifier );
-        }
-
-        return customer;
     }
 
     private void validate( Tuple2<Boolean, Boolean> elements ) {
